@@ -1,0 +1,17 @@
+<h3>Número de países {{ numero_paises }}</h3> 
+
+<ul>
+ {% for pais in paises %} 
+  <li>
+    {{ pais.p_nombre }} - Capital: {{ pais.p_capital }} - Provincias: {{ pais.num_provincias }} - Habitantes: {{ pais.num_habitantes }}
+    {# Aquí podrías añadir enlaces para ver, editar o eliminar si implementas esas vistas #}
+    {# Ejemplo: - [<a href="{% url 'obtener_pais' pais.id %}">ver</a>] #}
+    {# Ejemplo: - [<a href="{% url 'editar_pais' pais.id %}">editar</a>] #}
+    {# Ejemplo: - [<a href="{% url 'eliminar_pais' pais.id %}" onclick="return confirm('¿Está seguro de la eliminación?')">eliminar</a>] #}
+  </li>
+
+{% endfor %} 
+</ul>
+
+<br />
+[<a href="{% url 'agregar_pais' %}">agregar país</a>] {# Enlace para ir a la página de agregar país #}

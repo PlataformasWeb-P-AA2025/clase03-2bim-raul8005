@@ -17,4 +17,7 @@ urlpatterns = [
             name='editar_estudiante'),
         path('eliminar/estudiante/<int:id>', views.eliminar_estudiante,
             name='eliminar_estudiante'),
+
+        path('paises/', views.listar_paises, name='index_pais'), 
+        path('paises/agregar/', views.agregar_pais, name='agregar_pais'), 
  ]

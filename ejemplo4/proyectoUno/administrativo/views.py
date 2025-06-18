@@ -89,3 +89,37 @@ def eliminar_estudiante(request, id):
     estudiante = Estudiante.objects.get(pk=id)
     estudiante.delete()
     return redirect(index)
+
+
+def listar_paises(request):
+    # Obtenemos todos los objetos Pais de la base de datos usando el ORM de Django.
+    paises = Pais.objects.all()
+    
+    # Preparamos la información que se enviará a la plantilla HTML.
+    # Incluimos la lista de países y el número total de países.
+    informacion_template = {
+        'paises': paises,
+        'numero_paises': len(paises)
+    }
+    
+    return render(request, 'index_pais.html', informacion_template)
+
+def agregar_pais(request):
+    # Si la solicitud es de tipo POST (es decir, el formulario fue enviado)
+    if request.method == 'POST':
+        # Creamos una instancia del formulario con los datos enviados por el usuario.
+        formulario = PaisForm(request.POST)
+        
+        # Verificamos si los datos del formulario son válidos.
+        if formulario.is_valid():
+            # Si son válidos, guardamos el nuevo objeto Pais en la base de datos.
+            formulario.save()
+            
+            return redirect('index_pais')
+    else:
+        formulario = PaisForm()
+    
+    # Preparamos un diccionario con el formulario para pasarlo a la plantilla HTML.
+    diccionario = {'formulario': formulario}
+    
+    return render(request, 'agregar_pais.html', diccionario)
