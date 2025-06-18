@@ -4,5 +4,5 @@
 
 Explicación: 
 
-La parte de _set nos permite acceder desde la instancia principal (Estudiante) a objetos desde la instancia secundaria o asociada (Numero telefónico).
+La parte de _set, nos permite acceder desde la instancia principal (Estudiante) a objetos desde la instancia secundaria o asociada (Numero telefónico).
 Esto sucede cuando existe una ForeingKey que relaciona los modelos entre sí.
