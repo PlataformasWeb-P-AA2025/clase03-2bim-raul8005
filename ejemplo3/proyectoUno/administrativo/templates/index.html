@@ -10,6 +10,7 @@
     <th><b>Cedula</b></th>
     <th><b>Suma Cedula</b></th>
     <th><b>Lista telefonos</b></th>
+    <th><b>Inicial</b></th>
     <th><b>Opciones</b></th>
   </tr>
   {% for e in estudiantes %}
@@ -24,7 +25,7 @@
       {{e.cedula}}
     </td>
     <td>
-      {{e.sumaCedula}}
+      {{e.get_suma_cedula}}
     </td>
     <td>
       <ul>
@@ -35,6 +36,9 @@
     {% endfor %}
       </ul>
 
+    <td>
+      {{e.get_inicial_nombre}}
+    </td>
 </td>
 <td>
 [<a href="{% url 'obtener_estudiante' e.id %}">ver</a>]
