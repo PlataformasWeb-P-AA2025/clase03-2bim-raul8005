@@ -31,3 +31,35 @@
   {% endfor %}
 
 </table>
+
+<h1>Listado de estudiantes</h1>
+<hr>
+<h3>Numero de estudiantes</h3>
+
+<table border="1px">
+  <tr>
+    <th><b>Nombre</b></th>
+    <th><b>Apelido</b></th>
+    <th><b>Tipo</b></th>
+    <th><b>Edad</b></th>
+    <th><b>Matriculas</b></th>
+
+    </tr>
+  {% for est in estudiantes %}
+  <tr>
+    <td>{{ est.nombre }}</td>
+    <td>{{ est.apellido }}</td>
+    <td>{{ est.get_tipo_estudiante_display }}</td>
+    <td>{{ est.edad }}</td>
+    <td>
+      <ul>
+        {% for mat in est.obtener_matriculas %}
+        <li>{{ mat.modulo.nombre }}: {{ mat.comentario }}</li>
+        {% empty %}
+        <li>Sin matrículas</li>
+        {% endfor %}
+      </ul>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

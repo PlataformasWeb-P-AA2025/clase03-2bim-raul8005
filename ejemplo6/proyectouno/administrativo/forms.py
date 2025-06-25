@@ -8,8 +8,6 @@ class MatriculaForm(ModelForm):
         model = Matricula
         fields = ['estudiante', 'modulo', 'comentario']
 
-
-
 class MatriculaEditForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
